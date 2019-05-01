@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -5,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../img/drjava.ico">
+    <link rel="icon" href="{% static 'img/drjava.ico' %}">
 
     <title>Dr. Java Coffee Delivery Robot</title>
 
@@ -38,11 +40,11 @@
       </header> -->
 
       <main role="main" class="inner cover">
-        <img class="d-block mx-auto mb-4" src="../img/drjava.png" alt="" width="100" height="100">
+        <img class="d-block mx-auto mb-4" src="{% static 'img/drjava.png' %}" alt="" width="100" height="100">
         <h1 class="cover-heading">Thanks for your order!</h1>
         <p class="lead">Expect a visit from Dr. Java very soon. Check out where you are on the queue!</p>
         <p class="lead">
-          <a href="index.html" class="btn btn-lg btn-primary">Go to queue</a>
+          <a href="index" class="btn btn-lg btn-primary">Go to queue</a>
         </p>
       </main>
 
