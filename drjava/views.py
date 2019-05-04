@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse, HttpResponseServerError
 import json
+from . import access
 
 # Create your views here.
 def index(request):
@@ -12,6 +13,13 @@ def ordered(request):
 
 def interact(request):
     currentFace = request.GET.get("currentFace", "Brian Kernighan")
+    access.addFace(currentFace)
 
+    ret_val = {"currentFace": currentFace}
+    return JsonResponse(ret_val, safe=False)
+
+def getface(request):
+    currentFace = access.getFace()
+    
     ret_val = {"currentFace": currentFace}
     return JsonResponse(ret_val, safe=False)

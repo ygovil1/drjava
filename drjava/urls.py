@@ -6,5 +6,6 @@ urlpatterns = [
     path("index", views.index, name="index"),
     path("ordered", views.ordered, name="ordered"),
     path("interact", views.interact, name="interact"),
+    path("getface", views.getface, name="getface")
 ]
 
