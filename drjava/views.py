@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse, HttpResponseServerError
 import json
 from . import access
-# from . import verifyName
+from . import verifyName
 
 # Create your views here.
 def index(request):
@@ -22,5 +22,5 @@ def interact(request):
 def getface(request): 
     currentFace = access.getFace()
     
-    ret_val = {"currentFace": currentFace}
+    ret_val = verifyName.findInfo(currentFace)
     return JsonResponse(ret_val, safe=False)
