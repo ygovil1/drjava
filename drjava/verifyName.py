@@ -24,4 +24,4 @@ def findInfo(name):
 
         return info
 
-print(findInfo("david august"))
+# print(findInfo("david august"))
