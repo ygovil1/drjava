@@ -61,16 +61,47 @@ def getFace():
 
 # -----------------------------------------------------------------------
 
-# add a Face
-def addFace(face):
-    from drjava.models import Face
+# add new Order
+def addOrder(name, room):
+    from drjava.models import Order
 
-    delFaces()
-    newFace = Face(name=face, creation=datetime.datetime.now())
-    newFace.save()
+    newOrder = Order(name=name, room=room)
+    newOrder.save()
+
+    print("Added new order: ")
+    print(str(newOrder))
 
     print("Added face:")
     print(newFace)
+
+
+# -----------------------------------------------------------------------
+
+# Get all the orders
+def getOrders():
+    from drjava.models import Order
+
+    allOrders = Order.objects.all()
+
+    orders_list = []
+    for order in allOrders:
+        order_dict = {"name": order.name, "room": order.room}
+        orders_list.append(order_dict)
+
+    return orders_list
+
+
+# -----------------------------------------------------------------------
+
+# Get all the orders
+def deleteOrder(name, room):
+    from drjava.models import Order
+
+    matchingOrders = Order.objects.filter(name=name, room=room)
+
+    for order in matchingOrders:
+        print("Deleting: " + str(order))
+        order.delete()
 
 
 # -----------------------------------------------------------------------

@@ -55,3 +55,4 @@ def getInstruction(request):
     }
 
     return JsonResponse(instruction, safe=False)
+
