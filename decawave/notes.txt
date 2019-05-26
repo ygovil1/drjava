@@ -1,0 +1,31 @@
+{
+	anch_loc: new_dists{
+		dist (float): tags[
+			( tag_loc, numMeasure ), 
+			( tag_loc2, numMeasure2 )
+		]
+	},
+}
+
+
+Preference rules:
+	anch_53 - V good if avail, high weight
+
+Heuristic:
+	linearly interpolate each anch available to get position according to that anchor:
+		find bottom and top distances and matching points
+		calc distance between bottom and top points, if too far, use another point
+
+	If anch_53 available, use that:
+		get higher and lower dist measures and matching point numbers, pixel coordinates
+
+
+broadcast: 
+{
+	"ts": datetime64,
+	"author": "yash",
+	"x pos global": float,
+	"y pos global": float, 
+	"floor": int, 
+	"good": bool
+}
